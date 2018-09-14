@@ -1,7 +1,7 @@
 # underArmour
 How to Run this Project 
 
-Once the Project is checked out or set up in the local . Execute the command below from root folder > this will run the application in dev mode . If need to do a deployment run with appending -jar
+Once the Project is checked out or set up in the local . Execute the command below from root folder > this will run the application in dev mode . If need to do a stand alone deployment run with appending -jar
 
 mvn spring-boot:run
 
@@ -23,8 +23,6 @@ Data look from the database is implemented with Spring data JDBC template.
 Project structure improvement :
 
 The sample project is created with a simple project structure. The structure can be maintained and improved as controller, service, dao architecture. It will be good for better packaging of files. It's better to separate the repository, controller and service classes for better maintainability..
-
-
 
 
 Exception and Validation Improvement : Exception handling and validation of http requests are not implemented now . It have to be take in up as the better coding standard in next iteration . The query have to be seperated from the java code. 
