@@ -31,7 +31,7 @@ MessageRepository messageRepository;
  
  @RequestMapping(value = "/chat/{id}", method = RequestMethod.GET)
 	
- public ResponseEntity<MessageBean> getbyMessageID(@PathVariable Integer id) {
+ public ResponseEntity<MessageBean> getbyMessageID(@PathVariable int id) {
 	 MessageBean messageBean = new MessageBean();
 		
      messageBean = messageRepository.findUserMessageDataByID(id);
@@ -40,9 +40,9 @@ MessageRepository messageRepository;
  
  }
  
- @RequestMapping(value = "/chat/{username}", method = RequestMethod.GET)
+ @RequestMapping(value = "/chats/{username}", method = RequestMethod.GET)
 	
- public ResponseEntity<List<MessageBean>> getunexpiredUserMessageDataByUserName(@RequestParam(value="username")String username) {
+ public ResponseEntity<List<MessageBean>> getunexpiredUserMessageDataByUserName(@PathVariable String username) {
 	 
 	 List<MessageBean> messageBeanList = null;
 	 messageBeanList = messageRepository.findUnexpiredUserMessageDataByUserName(username);

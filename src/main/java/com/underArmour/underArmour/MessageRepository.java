@@ -39,9 +39,7 @@ public class MessageRepository{
 						: DefaultConstants.defaultTimeout).toInstant()));
 		messageModel.setCreationTime(Timestamp.from(ZonedDateTime.now().toInstant()));
 		
-		//jdbcTemplate.update("insert into usr_message (id, user_name, user_message ,creation_time,expiration_time,time_out)" + "values(?,?, ?,?,?,?)",
-		//			new Object[] { messageModel.getId(),messageModel.getUsername(),messageModel.getMessage(),messageModel.getCreationTime(),messageModel.getExpiration_time(),messageModel.getTimeout()});
-		
+
 		jdbcTemplate.update(new PreparedStatementCreator() {
 
 		      @Override
@@ -69,10 +67,10 @@ public class MessageRepository{
 	}
 
 	
-	public MessageBean findUserMessageDataByID(long ID) {
+	public MessageBean findUserMessageDataByID(int ID) {
 		
-		return jdbcTemplate.queryForObject("select * from usr_data where id=?", new Object[] { ID },
-				new BeanPropertyRowMapper<MessageBean>(MessageBean.class));
+		return (MessageBean) jdbcTemplate.queryForObject("select * from usr_data where id=? ", new Object[] { ID },
+				new MessageRepositoryRowMapper());
 	}
 		
 	
